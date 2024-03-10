@@ -1,6 +1,12 @@
-function Comment() {
+import { TComment } from "../../types/comments"
+
+type CommentProps = {
+  comment: TComment;
+}
+
+function Comment({ comment }: CommentProps) {
   return (
-    <div>Comment</div>
+    <div className="comment">Comment</div>
   )
 }
 
