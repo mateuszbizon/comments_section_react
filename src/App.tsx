@@ -1,6 +1,9 @@
+import "./styles/index.scss";
+import CommentsSection from "./pages/CommentsSection"
+
 function App() {
   return (
-    <h1>comments section app</h1>
+    <CommentsSection />
   )
 }
 
