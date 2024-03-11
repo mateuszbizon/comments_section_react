@@ -1,9 +1,9 @@
 import plusIcon from "../../assets/icon-plus.svg";
 import minusIcon from "../../assets/icon-minus.svg";
-import { TComment } from "../../types/comments"
+import { CommentType, ReplyType } from "../../types/comments"
 
 type ScoreButtonProps = {
-    comment: TComment;
+    comment: CommentType | ReplyType;
 }
 
 function ScoreButton({ comment }: ScoreButtonProps) {

@@ -1,9 +1,9 @@
-import { TComment } from "../../types/comments"
+import { CommentType } from "../../types/comments"
 import { usersImages } from "../../constants/usersImages"
 import ScoreButton from "../buttons/ScoreButton";
 
 type CommentProps = {
-  comment: TComment;
+  comment: CommentType;
 }
 
 function Comment({ comment }: CommentProps) {

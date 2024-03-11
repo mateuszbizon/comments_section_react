@@ -1,13 +1,13 @@
-export type TComment = {
+export type CommentType = {
     id: number;
     content: string;
     createdAt: string;
     score: number;
     user: User;
-    replies: Reply[];
+    replies: ReplyType[];
 }
 
-type Reply = {
+export type ReplyType = {
     id: number;
     content: string;
     createdAt: string;
