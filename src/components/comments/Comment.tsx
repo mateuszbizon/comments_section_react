@@ -1,6 +1,7 @@
 import { CommentType } from "../../types/comments"
 import { usersImages } from "../../constants/usersImages"
 import ScoreButton from "../buttons/ScoreButton";
+import ReplyButton from "../buttons/ReplyButton";
 
 type CommentProps = {
   comment: CommentType;
@@ -16,6 +17,7 @@ function Comment({ comment }: CommentProps) {
       </div>
       <p className="comment__content">{comment.content}</p>
       <ScoreButton comment={comment} />
+      <ReplyButton />
     </div>
   )
 }

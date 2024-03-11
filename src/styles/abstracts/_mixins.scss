@@ -1,0 +1,14 @@
+@mixin comment-btn {
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+    transition: color .2s;
+    font-weight: bold;
+}
