@@ -1,10 +1,14 @@
 @use "../abstracts/colors" as *;
 
 .comment {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 	width: clamp(300px, 90%, 800px);
 	background-color: #fff;
 	border-radius: 8px;
-	padding: 10px;
+	padding: 15px 15px 60px 15px;
 
 	&__top {
 		display: flex;
@@ -29,6 +33,6 @@
 
 	&__content {
 		color: $main-grey-color;
-		line-height: 20px;
+		line-height: 22px;
 	}
 }

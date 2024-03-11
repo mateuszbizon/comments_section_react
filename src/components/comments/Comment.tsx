@@ -1,5 +1,6 @@
 import { TComment } from "../../types/comments"
 import { usersImages } from "../../constants/usersImages"
+import ScoreButton from "../buttons/ScoreButton";
 
 type CommentProps = {
   comment: TComment;
@@ -14,6 +15,7 @@ function Comment({ comment }: CommentProps) {
         <span className="comment__top-created-at">{comment.createdAt}</span>
       </div>
       <p className="comment__content">{comment.content}</p>
+      <ScoreButton comment={comment} />
     </div>
   )
 }
