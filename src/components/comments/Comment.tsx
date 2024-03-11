@@ -3,6 +3,7 @@ import { usersImages } from "../../constants/usersImages"
 import ScoreButton from "../buttons/ScoreButton";
 import ReplyButton from "../buttons/ReplyButton";
 import EditButton from "../buttons/EditButton";
+import DeleteButton from "../buttons/DeleteButton";
 
 type CommentProps = {
   comment: CommentType;

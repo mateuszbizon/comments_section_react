@@ -1,0 +1,12 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.delete-btn {
+    @include comment-btn;
+    right: 80px;
+    color: $red-color;
+
+    &:hover {
+        color: $red-color-bright;
+    }
+}
