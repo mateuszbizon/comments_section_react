@@ -1,0 +1,12 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.edit-btn {
+    @include comment-btn;
+    right: 15px;
+    color: $main-color;
+
+    &:hover {
+        color: $main-color-bright;
+    }
+}

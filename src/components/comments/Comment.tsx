@@ -2,6 +2,7 @@ import { CommentType } from "../../types/comments"
 import { usersImages } from "../../constants/usersImages"
 import ScoreButton from "../buttons/ScoreButton";
 import ReplyButton from "../buttons/ReplyButton";
+import EditButton from "../buttons/EditButton";
 
 type CommentProps = {
   comment: CommentType;
