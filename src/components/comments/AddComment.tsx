@@ -1,6 +1,8 @@
 function AddComment() {
   return (
-    <div>AddComment</div>
+    <div className="add-comment">
+      <span>siema</span>
+    </div>
   )
 }
 
