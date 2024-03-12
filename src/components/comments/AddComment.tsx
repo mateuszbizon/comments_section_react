@@ -1,7 +1,9 @@
+import AddCommentForm from "../forms/AddCommentForm"
+
 function AddComment() {
   return (
     <div className="add-comment">
-      <span>siema</span>
+      <AddCommentForm />
     </div>
   )
 }

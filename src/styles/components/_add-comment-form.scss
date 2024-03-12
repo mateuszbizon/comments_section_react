@@ -1,0 +1,53 @@
+@use "../abstracts/colors" as *;
+
+.add-comment-form {
+	&__mobile {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	&__mobile-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__textarea {
+		padding: 10px 20px;
+		resize: none;
+		border: 1px solid $secondary-grey-color;
+		border-radius: 8px;
+
+		&:focus {
+			outline: none;
+			border: 1px solid $main-color-bright;
+		}
+	}
+
+	&__img {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+	}
+
+	&__send-btn {
+		text-transform: uppercase;
+		border: none;
+		padding: 10px 20px;
+		background-color: $main-color;
+		color: #fff;
+		border-radius: 8px;
+		transition: background-color 0.2s;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $main-color-bright;
+		}
+
+        &:focus {
+            outline: none;
+			background-color: $main-color-bright;
+		}
+	}
+}
