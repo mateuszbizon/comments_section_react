@@ -1,5 +1,8 @@
 import { usersImages } from "../../constants/usersImages";
+import useCurrentuser from "../../hooks/useCurrentuser";
 import { ReplyType } from "../../types/comments";
+import DeleteButton from "../buttons/DeleteButton";
+import EditButton from "../buttons/EditButton";
 import ReplyButton from "../buttons/ReplyButton";
 import ScoreButton from "../buttons/ScoreButton";
 
@@ -8,6 +11,8 @@ type ReplyProps = {
 }
 
 function Reply({ reply }: ReplyProps) {
+  const { isCurrentUser } = useCurrentuser(reply.user.username)
+
   return (
     <div className="comment">
         <div className="comment__top">
@@ -17,7 +22,12 @@ function Reply({ reply }: ReplyProps) {
         </div>
         <p className="comment__content">{reply.content}</p>
         <ScoreButton comment={reply} />
-        <ReplyButton />
+        {isCurrentUser ? (
+          <>
+            <DeleteButton />
+            <EditButton />
+          </>
+        ) : <ReplyButton />}
       </div>
   )
 }

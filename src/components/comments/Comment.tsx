@@ -5,12 +5,15 @@ import ReplyButton from "../buttons/ReplyButton";
 import EditButton from "../buttons/EditButton";
 import DeleteButton from "../buttons/DeleteButton";
 import Replies from "./Replies";
+import useCurrentuser from "../../hooks/useCurrentuser";
 
 type CommentProps = {
   comment: CommentType;
 }
 
 function Comment({ comment }: CommentProps) {
+  const { isCurrentUser } = useCurrentuser(comment.user.username)
+
   return (
     <div className="comment-container">
       <div className="comment">
@@ -21,7 +24,12 @@ function Comment({ comment }: CommentProps) {
         </div>
         <p className="comment__content">{comment.content}</p>
         <ScoreButton comment={comment} />
-        <ReplyButton />
+        {isCurrentUser ? (
+          <>
+            <DeleteButton />
+            <EditButton />
+          </>
+        ) : <ReplyButton />}
       </div>
       {comment.replies.length > 0 && (
         <Replies replies={comment.replies} />
