@@ -38,6 +38,7 @@
 	&__content {
 		color: $main-grey-color;
 		line-height: 22px;
+		word-wrap: break-word;
 	}
 
 	&__content-username {
