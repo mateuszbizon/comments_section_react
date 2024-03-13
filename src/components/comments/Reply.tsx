@@ -7,9 +7,7 @@ import EditButton from "../buttons/EditButton";
 import ReplyButton from "../buttons/ReplyButton";
 import ScoreButton from "../buttons/ScoreButton";
 import AddCommentForm from "../forms/AddCommentForm";
-import { useSetRecoilState } from "recoil";
-import { commentsState } from "../../state/atoms/commentsState";
-import usersData from "../../data/data.json";
+import useAddReply from "../../hooks/useAddReply";
 
 type ReplyProps = {
     reply: ReplyType;
@@ -19,30 +17,11 @@ type ReplyProps = {
 function Reply({ reply, comment }: ReplyProps) {
   const [isReplyFormActive, setIsReplyFormActive] = useState(false);
   const [newReply, setNewReply] = useState("");
-  const setReply = useSetRecoilState(commentsState);
   const { isCurrentUser } = useCurrentuser(reply.user.username)
+  const { addReply } = useAddReply(comment, reply.user.username, newReply);
 
-  function addReply() {
-    setReply(prev => {
-      return prev.map(commentItem => {
-        if (commentItem.id === comment.id) {
-          return {
-            ...commentItem,
-            replies: [...commentItem.replies, {
-              id: Math.floor(Math.random() * 10000), 
-              content: newReply, 
-              createdAt: "today", 
-              score: 0, 
-              replyingTo: reply.user.username, 
-              user: usersData.currentUser,
-            }]
-          };
-        }
-
-        return commentItem;
-      });
-    })
-
+  function handleAddReply() {
+    addReply();
     setIsReplyFormActive(false);
   }
 
@@ -65,7 +44,7 @@ function Reply({ reply, comment }: ReplyProps) {
       </div>
       {isReplyFormActive && (
         <div className="comment__form-editor">
-          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={addReply} isReply={true} />
+          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={handleAddReply} isReply={true} />
         </div>
       )}
     </>
