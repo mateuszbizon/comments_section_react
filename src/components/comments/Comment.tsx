@@ -17,6 +17,7 @@ type CommentProps = {
 }
 
 function Comment({ comment }: CommentProps) {
+  const [isReplyFormActive, setIsReplyFormActive] = useState(false);
   const [newReply, setNewReply] = useState("");
   const setReply = useSetRecoilState(commentsState);
   const { isCurrentUser } = useCurrentuser(comment.user.username);
@@ -41,6 +42,8 @@ function Comment({ comment }: CommentProps) {
         return commentItem;
       });
     })
+
+    setIsReplyFormActive(false);
   }
 
   return (
@@ -58,11 +61,13 @@ function Comment({ comment }: CommentProps) {
             <DeleteButton />
             <EditButton />
           </>
-        ) : <ReplyButton />}
+        ) : <ReplyButton setIsReplyFormActive={setIsReplyFormActive} />}
       </div>
-      <div className="comment">
-        <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={addReply} />
-      </div>
+      {isReplyFormActive && (
+        <div className="comment__form-editor">
+          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={addReply} />
+        </div>
+      )}
       {comment.replies.length > 0 && (
         <Replies replies={comment.replies} />
       )}

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { usersImages } from "../../constants/usersImages";
 import useCurrentuser from "../../hooks/useCurrentuser";
 import { ReplyType } from "../../types/comments";
@@ -11,6 +12,7 @@ type ReplyProps = {
 }
 
 function Reply({ reply }: ReplyProps) {
+  const [isReplyFormActive, setIsReplyFormActive] = useState(false);
   const { isCurrentUser } = useCurrentuser(reply.user.username)
 
   return (
@@ -27,7 +29,7 @@ function Reply({ reply }: ReplyProps) {
             <DeleteButton />
             <EditButton />
           </>
-        ) : <ReplyButton />}
+        ) : <ReplyButton setIsReplyFormActive={setIsReplyFormActive} />}
       </div>
   )
 }

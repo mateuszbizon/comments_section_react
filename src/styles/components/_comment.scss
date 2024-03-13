@@ -39,4 +39,12 @@
 		color: $main-grey-color;
 		line-height: 22px;
 	}
+
+	&__form-editor {
+		width: 100%;
+		background-color: #fff;
+		border-radius: 8px;
+		padding: 15px 15px 15px 15px;
+		margin-top: 10px;
+	}
 }
