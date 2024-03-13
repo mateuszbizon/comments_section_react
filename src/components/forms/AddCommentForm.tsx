@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent } from "react";
 import { usersImages } from "../../constants/usersImages";
 import usersData from "../../data/data.json";
+import SendButton from "../buttons/SendButton";
 
 type AddCommentFormProps = {
 	newComment: string;
@@ -33,7 +34,9 @@ function AddCommentForm({ newComment, setNewComment, submitFunction, isReply }: 
 						src={usersImages[usersData.currentUser.image.png]}
 						alt=''
 					/>
-					<button type="submit" className='add-comment-form__send-btn'>{isReply ? "reply" : "send"}</button>
+					<SendButton>
+						{isReply ? "reply" : "send"}
+					</SendButton>
 				</div>
 			</div>
 		</form>

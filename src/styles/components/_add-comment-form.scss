@@ -30,19 +30,4 @@
 		height: 30px;
 		border-radius: 50%;
 	}
-
-	&__send-btn {
-		text-transform: uppercase;
-		border: none;
-		padding: 10px 20px;
-		background-color: $main-color;
-		color: #fff;
-		border-radius: 8px;
-		transition: background-color 0.2s;
-		cursor: pointer;
-
-		&:hover {
-			background-color: $main-color-bright;
-		}
-	}
 }
