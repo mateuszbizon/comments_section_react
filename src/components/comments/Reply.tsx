@@ -33,7 +33,7 @@ function Reply({ reply, comment }: ReplyProps) {
             <span className="comment__top-username">{reply.user.username}</span>
             <span className="comment__top-created-at">{reply.createdAt}</span>
           </div>
-          <p className="comment__content">{reply.content}</p>
+          <p className="comment__content"><span className="comment__content-username">@{reply.replyingTo}</span>{reply.content}</p>
           <ScoreButton comment={reply} />
           {isCurrentUser ? (
             <>
