@@ -12,7 +12,7 @@ function Replies({ replies }: RepliesProps) {
         <div className="replies__comments">
             {replies.map((reply) => {
                 return (
-                    <Reply reply={reply} />
+                    <Reply key={reply.id} reply={reply} />
                 )
             })}
         </div>
