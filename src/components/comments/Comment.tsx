@@ -69,7 +69,7 @@ function Comment({ comment }: CommentProps) {
         </div>
       )}
       {comment.replies.length > 0 && (
-        <Replies replies={comment.replies} />
+        <Replies replies={comment.replies} comment={comment} />
       )}
     </div>
   )
