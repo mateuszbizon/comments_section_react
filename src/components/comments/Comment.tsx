@@ -65,7 +65,7 @@ function Comment({ comment }: CommentProps) {
       </div>
       {isReplyFormActive && (
         <div className="comment__form-editor">
-          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={addReply} />
+          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={addReply} isReply={true} />
         </div>
       )}
       {comment.replies.length > 0 && (

@@ -23,7 +23,7 @@ function AddComment() {
 
   return (
     <div className="add-comment">
-      <AddCommentForm newComment={newComment} setNewComment={setNewComment} submitFunction={addComment} />
+      <AddCommentForm newComment={newComment} setNewComment={setNewComment} submitFunction={addComment} isReply={false} />
     </div>
   )
 }
