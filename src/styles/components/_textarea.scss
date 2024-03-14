@@ -1,0 +1,13 @@
+@use "../abstracts/colors" as *;
+
+.textarea {
+    padding: 10px 20px;
+    resize: none;
+    border: 1px solid $secondary-grey-color;
+    border-radius: 8px;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $main-color-bright;
+    }
+}

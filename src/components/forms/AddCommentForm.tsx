@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent } from "react";
 import { usersImages } from "../../constants/usersImages";
 import usersData from "../../data/data.json";
 import SendButton from "../buttons/SendButton";
+import Textarea from "./Textarea";
 
 type AddCommentFormProps = {
 	newComment: string;
@@ -28,7 +29,7 @@ function AddCommentForm({ newComment, setNewComment, submitFunction, btnText, te
 	return (
 		<form className='add-comment-form' onSubmit={handleSubmit}>
 			<div className='add-comment-form__mobile'>
-				<textarea className='add-comment-form__textarea' value={newComment} onChange={handleInputChange} rows={5} placeholder={textareaText}></textarea>
+				<Textarea value={newComment} setValue={setNewComment} textareaText={textareaText} />
 				<div className='add-comment-form__mobile-row'>
 					<img
 						className='add-comment-form__img'
