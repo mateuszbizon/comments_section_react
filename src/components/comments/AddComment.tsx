@@ -3,6 +3,7 @@ import AddCommentForm from "../forms/AddCommentForm"
 import { useSetRecoilState } from "recoil";
 import { commentsState } from "../../state/atoms/commentsState";
 import usersData from "../../data/data.json";
+import { btnAddText, textareaAddText } from "../../constants/formsText";
 
 function AddComment() {
   const [newComment, setNewComment] = useState("");
@@ -23,7 +24,7 @@ function AddComment() {
 
   return (
     <div className="add-comment">
-      <AddCommentForm newComment={newComment} setNewComment={setNewComment} submitFunction={addComment} isReply={false} />
+      <AddCommentForm newComment={newComment} setNewComment={setNewComment} submitFunction={addComment} btnText={btnAddText} textareaText={textareaAddText} />
     </div>
   )
 }

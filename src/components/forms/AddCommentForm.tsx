@@ -7,10 +7,11 @@ type AddCommentFormProps = {
 	newComment: string;
 	setNewComment: (newComment: string) => void;
 	submitFunction: () => void;
-	isReply: boolean;
+	btnText: string;
+	textareaText: string;
 }
 
-function AddCommentForm({ newComment, setNewComment, submitFunction, isReply }: AddCommentFormProps) {
+function AddCommentForm({ newComment, setNewComment, submitFunction, btnText, textareaText }: AddCommentFormProps) {
 	function handleInputChange(e: ChangeEvent<HTMLTextAreaElement>) {
 		setNewComment(e.target.value)
 	}
@@ -27,7 +28,7 @@ function AddCommentForm({ newComment, setNewComment, submitFunction, isReply }: 
 	return (
 		<form className='add-comment-form' onSubmit={handleSubmit}>
 			<div className='add-comment-form__mobile'>
-				<textarea className='add-comment-form__textarea' value={newComment} onChange={handleInputChange} rows={5} placeholder={isReply ? "Add a reply..." : "Add a comment..."}></textarea>
+				<textarea className='add-comment-form__textarea' value={newComment} onChange={handleInputChange} rows={5} placeholder={textareaText}></textarea>
 				<div className='add-comment-form__mobile-row'>
 					<img
 						className='add-comment-form__img'
@@ -35,7 +36,7 @@ function AddCommentForm({ newComment, setNewComment, submitFunction, isReply }: 
 						alt=''
 					/>
 					<SendButton>
-						{isReply ? "reply" : "send"}
+						{btnText}
 					</SendButton>
 				</div>
 			</div>

@@ -8,6 +8,7 @@ import ReplyButton from "../buttons/ReplyButton";
 import ScoreButton from "../buttons/ScoreButton";
 import AddCommentForm from "../forms/AddCommentForm";
 import useAddReply from "../../hooks/useAddReply";
+import { btnReplyText, textareaReplyText } from "../../constants/formsText";
 
 type ReplyProps = {
     reply: ReplyType;
@@ -44,7 +45,7 @@ function Reply({ reply, comment }: ReplyProps) {
       </div>
       {isReplyFormActive && (
         <div className="comment__form-editor">
-          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={handleAddReply} isReply={true} />
+          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={handleAddReply} btnText={btnReplyText} textareaText={textareaReplyText} />
         </div>
       )}
     </>

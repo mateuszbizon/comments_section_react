@@ -9,6 +9,7 @@ import useCurrentuser from "../../hooks/useCurrentuser";
 import AddCommentForm from "../forms/AddCommentForm";
 import { useState } from "react";
 import useAddReply from "../../hooks/useAddReply";
+import { btnReplyText, textareaReplyText } from "../../constants/formsText";
 
 type CommentProps = {
   comment: CommentType;
@@ -45,7 +46,7 @@ function Comment({ comment }: CommentProps) {
       </div>
       {isReplyFormActive && (
         <div className="comment__form-editor">
-          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={handleAddReply} isReply={true} />
+          <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={handleAddReply} btnText={btnReplyText} textareaText={textareaReplyText}  />
         </div>
       )}
       {comment.replies.length > 0 && (
