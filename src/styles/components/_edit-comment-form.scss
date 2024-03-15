@@ -1,0 +1,10 @@
+.edit-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__btn-row {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

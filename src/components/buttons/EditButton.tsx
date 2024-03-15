@@ -1,8 +1,16 @@
 import editIcon from "../../assets/icon-edit.svg";
 
-function EditButton() {
+type EditButtonProps = {
+  showEditForm: (isEditing: (prev: boolean) => boolean) => void;
+}
+
+function EditButton({ showEditForm }: EditButtonProps) {
+  function handleShowEditForm() {
+    showEditForm(prev => !prev)
+  }
+  
   return (
-    <button className="edit-btn">
+    <button className="edit-btn" onClick={handleShowEditForm}>
         <img src={editIcon} alt="" />
         <span>Edit</span>
     </button>

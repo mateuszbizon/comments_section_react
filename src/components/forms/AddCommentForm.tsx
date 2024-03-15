@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from "react";
+import { FormEvent } from "react";
 import { usersImages } from "../../constants/usersImages";
 import usersData from "../../data/data.json";
 import SendButton from "../buttons/SendButton";
@@ -13,10 +13,7 @@ type AddCommentFormProps = {
 }
 
 function AddCommentForm({ newComment, setNewComment, submitFunction, btnText, textareaText }: AddCommentFormProps) {
-	function handleInputChange(e: ChangeEvent<HTMLTextAreaElement>) {
-		setNewComment(e.target.value)
-	}
-
+	
 	function handleSubmit(e: FormEvent) {
 		e.preventDefault();
 
