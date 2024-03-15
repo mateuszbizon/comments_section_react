@@ -8,7 +8,9 @@ import ReplyButton from "../buttons/ReplyButton";
 import ScoreButton from "../buttons/ScoreButton";
 import AddCommentForm from "../forms/AddCommentForm";
 import useAddReply from "../../hooks/useAddReply";
-import { btnReplyText, textareaReplyText } from "../../constants/formsText";
+import { btnReplyText, textareaReplyText, btnUpdateText, textareaUpdateText } from "../../constants/formsText";
+import EditCommentForm from "../forms/EditCommentForm";
+import useEditReply from "../../hooks/useEditReply";
 
 type ReplyProps = {
     reply: ReplyType;
@@ -18,12 +20,21 @@ type ReplyProps = {
 function Reply({ reply, comment }: ReplyProps) {
   const [isReplyFormActive, setIsReplyFormActive] = useState(false);
   const [newReply, setNewReply] = useState("");
+  const [editReply, setEditReply] = useState<string>(reply.content);
+  const [isEditing, setIsEditing] = useState(false);
   const { isCurrentUser } = useCurrentuser(reply.user.username)
   const { addReply } = useAddReply(comment, reply.user.username, newReply);
+  const { updateReply } = useEditReply(comment, reply, editReply)
 
   function handleAddReply() {
     addReply();
     setIsReplyFormActive(false);
+  }
+
+  function handleUpdateReply() {
+    updateReply();
+
+    setIsEditing(false);
   }
 
   return (
@@ -34,12 +45,16 @@ function Reply({ reply, comment }: ReplyProps) {
             <span className="comment__top-username">{reply.user.username}</span>
             <span className="comment__top-created-at">{reply.createdAt}</span>
           </div>
-          <p className="comment__content"><span className="comment__content-username">@{reply.replyingTo}</span>{reply.content}</p>
+          {!isEditing ? (
+            <p className="comment__content"><span className="comment__content-username">@{reply.replyingTo}</span>{reply.content}</p>
+          ) : (
+            <EditCommentForm editComment={editReply} setEditComment={setEditReply} submitFunction={handleUpdateReply} btnText={btnUpdateText} textareaText={textareaUpdateText} />
+          )}
           <ScoreButton comment={reply} />
           {isCurrentUser ? (
             <>
               <DeleteButton />
-              <EditButton />
+              <EditButton showEditForm={setIsEditing} />
             </>
           ) : <ReplyButton setIsReplyFormActive={setIsReplyFormActive} />}
       </div>

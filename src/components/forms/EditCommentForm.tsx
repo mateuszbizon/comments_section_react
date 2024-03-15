@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import SendButton from "../buttons/SendButton";
 import Textarea from "./Textarea";
 
@@ -10,7 +11,9 @@ type EditCommentFormProps = {
 }
 
 function EditCommentForm({ editComment, setEditComment, submitFunction, btnText, textareaText }: EditCommentFormProps) {
-	function handleSubmit() {
+	function handleSubmit(e: FormEvent) {
+        e.preventDefault();
+
         if (editComment.length == 0) return;
 
         submitFunction();
