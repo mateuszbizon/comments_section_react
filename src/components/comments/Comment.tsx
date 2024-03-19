@@ -12,6 +12,7 @@ import useAddReply from "../../hooks/useAddReply";
 import { btnReplyText, textareaReplyText, btnUpdateText, textareaUpdateText } from "../../constants/formsText";
 import EditCommentForm from "../forms/EditCommentForm";
 import useEditComment from "../../hooks/useEditComment";
+import useScoreComment from "../../hooks/useScoreComment";
 
 type CommentProps = {
   comment: CommentType;
@@ -25,6 +26,7 @@ function Comment({ comment }: CommentProps) {
   const { isCurrentUser } = useCurrentuser(comment.user.username);
   const { addReply } = useAddReply(comment, comment.user.username, newReply);
   const { updateComment } = useEditComment(comment, editComment);
+  const { increaseScoreComment, decreaseScoreComment } = useScoreComment(comment);
 
   function handleAddReply() {
     addReply();
@@ -48,7 +50,7 @@ function Comment({ comment }: CommentProps) {
         </div>
         {!isEditing ? <p className="comment__content">{comment.content}</p> : <EditCommentForm editComment={editComment} setEditComment={setEditComment} submitFunction={handleUpdateComment} btnText={btnUpdateText} textareaText={textareaUpdateText} />}
 
-        <ScoreButton comment={comment} />
+        <ScoreButton comment={comment} increaseFunction={increaseScoreComment} decreaseFunction={decreaseScoreComment} />
         {isCurrentUser ? (
           <>
             <DeleteButton />
