@@ -3,7 +3,6 @@
 
 .delete-btn {
     @include comment-btn;
-    right: 80px;
     color: $red-color;
 
     &:hover {

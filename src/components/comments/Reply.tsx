@@ -42,24 +42,30 @@ function Reply({ reply, comment }: ReplyProps) {
   return (
     <>
       <div className="comment">
-          <div className="comment__top">
-            <img className="comment__top-img" src={usersImages[reply.user.image.png]} alt="" />
-            <span className="comment__top-username">{reply.user.username}</span>
-            <span className="comment__top-created-at">{reply.createdAt}</span>
-          </div>
-          {!isEditing ? (
-            <p className="comment__content"><span className="comment__content-username">@{reply.replyingTo}</span>{reply.content}</p>
-          ) : (
-            <EditCommentForm editComment={editReply} setEditComment={setEditReply} submitFunction={handleUpdateReply} btnText={btnUpdateText} textareaText={textareaUpdateText} />
-          )}
-          <ScoreButton comment={reply} increaseFunction={increaseScoreReply} decreaseFunction={decreaseScoreReply} />
+        <div className="comment__top">
+          <img className="comment__top-img" src={usersImages[reply.user.image.png]} alt="" />
+          <span className="comment__top-username">{reply.user.username}</span>
+          <span className="comment__top-created-at">{reply.createdAt}</span>
+        </div>
+
+        {!isEditing ? (
+          <p className="comment__content"><span className="comment__content-username">@{reply.replyingTo}</span>{reply.content}</p>
+        ) : (
+          <EditCommentForm editComment={editReply} setEditComment={setEditReply} submitFunction={handleUpdateReply} btnText={btnUpdateText} textareaText={textareaUpdateText} />
+        )}
+
+        <ScoreButton comment={reply} increaseFunction={increaseScoreReply} decreaseFunction={decreaseScoreReply} />
+        
+        <div className="comment__btns-row">
           {isCurrentUser ? (
             <>
               <DeleteButton />
               <EditButton showEditForm={setIsEditing} />
             </>
           ) : <ReplyButton setIsReplyFormActive={setIsReplyFormActive} />}
+        </div>
       </div>
+
       {isReplyFormActive && (
         <div className="comment__form-editor">
           <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={handleAddReply} btnText={btnReplyText} textareaText={textareaReplyText} />

@@ -3,7 +3,6 @@
 
 .edit-btn {
     @include comment-btn;
-    right: 15px;
     color: $main-color;
 
     &:hover {
