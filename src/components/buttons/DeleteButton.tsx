@@ -1,8 +1,16 @@
 import deleteIcon from "../../assets/icon-delete.svg";
 
-function DeleteButton() {
+type DeleteButtonProps = {
+  setIsDeleteModalOpen: (isOpen: boolean) => void;
+}
+
+function DeleteButton({ setIsDeleteModalOpen }: DeleteButtonProps) {
+  function handleSetDeleteModalOpen() {
+    setIsDeleteModalOpen(true);
+  }
+  
   return (
-    <button className="delete-btn">
+    <button className="delete-btn" onClick={handleSetDeleteModalOpen}>
         <img src={deleteIcon} alt="" />
         <span>Delete</span>
     </button>

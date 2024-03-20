@@ -1,0 +1,11 @@
+@use "../abstracts/colors" as *;
+
+.shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	background-color: $shadow-color;
+	z-index: 5;
+}

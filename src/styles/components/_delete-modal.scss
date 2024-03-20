@@ -1,0 +1,33 @@
+@use "../abstracts/colors" as *;
+
+.delete-modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	background-color: #fff;
+	border-radius: 8px;
+	z-index: 10;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	&__title {
+		font-size: 18px;
+		color: $secondary-color;
+		font-weight: bold;
+	}
+
+	&__content {
+		color: $main-grey-color;
+		line-height: 22px;
+	}
+
+	&__btns-row {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+	}
+}
