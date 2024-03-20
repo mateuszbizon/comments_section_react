@@ -17,7 +17,7 @@ function DeleteModal({ isDeleteModalOpen, setIsDeleteModalOpen } : DeleteModalPr
                     <span className="delete-modal__title">Delete comment</span>
                     <p className="delete-modal__content">Are you sure you want to delete this comment? This will remove the comment and can't be undone</p>
                     <div className="delete-modal__btns-row">
-                        <CancelButton>
+                        <CancelButton setIsModalOpen={setIsDeleteModalOpen}>
                             no, cancel
                         </CancelButton>
                         <DeleteConfirmButton>
