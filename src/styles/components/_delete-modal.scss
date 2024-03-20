@@ -12,7 +12,7 @@
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 15px;
 
 	&__title {
 		font-size: 18px;
@@ -29,5 +29,12 @@
 		display: flex;
 		justify-content: center;
 		gap: 10px;
+	}
+}
+
+@media (min-width: 576px) {
+	.delete-modal {
+		width: 350px;
+		padding: 25px;
 	}
 }
