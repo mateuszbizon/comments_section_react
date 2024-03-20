@@ -12,6 +12,7 @@ import { btnReplyText, textareaReplyText, btnUpdateText, textareaUpdateText } fr
 import EditCommentForm from "../forms/EditCommentForm";
 import useEditReply from "../../hooks/useEditReply";
 import useScoreReply from "../../hooks/useScoreReply";
+import DeleteModal from "../modals/DeleteModal";
 
 type ReplyProps = {
     reply: ReplyType;
@@ -23,6 +24,7 @@ function Reply({ reply, comment }: ReplyProps) {
   const [newReply, setNewReply] = useState("");
   const [editReply, setEditReply] = useState<string>(reply.content);
   const [isEditing, setIsEditing] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const { isCurrentUser } = useCurrentuser(reply.user.username)
   const { addReply } = useAddReply(comment, reply.user.username, newReply);
   const { updateReply } = useEditReply(comment, reply, editReply)
@@ -59,7 +61,7 @@ function Reply({ reply, comment }: ReplyProps) {
         <div className="comment__btns-row">
           {isCurrentUser ? (
             <>
-              <DeleteButton />
+              <DeleteButton setIsDeleteModalOpen={setIsDeleteModalOpen} />
               <EditButton showEditForm={setIsEditing} />
             </>
           ) : <ReplyButton setIsReplyFormActive={setIsReplyFormActive} />}
@@ -71,6 +73,8 @@ function Reply({ reply, comment }: ReplyProps) {
           <AddCommentForm newComment={newReply} setNewComment={setNewReply} submitFunction={handleAddReply} btnText={btnReplyText} textareaText={textareaReplyText} />
         </div>
       )}
+
+      <DeleteModal isDeleteModalOpen={isDeleteModalOpen} setIsDeleteModalOpen={setIsDeleteModalOpen} />
     </>
   )
 }
