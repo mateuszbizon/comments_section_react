@@ -1,14 +1,10 @@
 @use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
 
 .send-btn {
-	text-transform: uppercase;
-	border: none;
-	padding: 10px 20px;
+	@include btn-filled;
 	background-color: $main-color;
 	color: #fff;
-	border-radius: 8px;
-	transition: background-color 0.2s;
-	cursor: pointer;
 
 	&:hover {
 		background-color: $main-color-bright;

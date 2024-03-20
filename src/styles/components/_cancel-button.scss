@@ -1,0 +1,13 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/colors" as *;
+
+.cancel-btn {
+	@include btn-filled;
+	background-color: $main-grey-color;
+	color: #fff;
+	font-weight: bold;
+
+	&:hover {
+		background-color: $secondary-grey-color;
+	}
+}
