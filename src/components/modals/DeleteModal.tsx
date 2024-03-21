@@ -5,9 +5,10 @@ import Shadow from "./Shadow"
 type DeleteModalProps = {
     isDeleteModalOpen: boolean;
     setIsDeleteModalOpen: (isOpen: boolean) => void;
+    deleteFunction: () => void;
 }
 
-function DeleteModal({ isDeleteModalOpen, setIsDeleteModalOpen } : DeleteModalProps) {
+function DeleteModal({ isDeleteModalOpen, setIsDeleteModalOpen, deleteFunction } : DeleteModalProps) {
   return (
     <>
         {isDeleteModalOpen && (
@@ -20,7 +21,7 @@ function DeleteModal({ isDeleteModalOpen, setIsDeleteModalOpen } : DeleteModalPr
                         <CancelButton setIsModalOpen={setIsDeleteModalOpen}>
                             no, cancel
                         </CancelButton>
-                        <DeleteConfirmButton>
+                        <DeleteConfirmButton deleteFunction={deleteFunction}>
                             yes, delete
                         </DeleteConfirmButton>
                     </div>

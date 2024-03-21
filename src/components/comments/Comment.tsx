@@ -14,6 +14,7 @@ import EditCommentForm from "../forms/EditCommentForm";
 import useEditComment from "../../hooks/useEditComment";
 import useScoreComment from "../../hooks/useScoreComment";
 import DeleteModal from "../modals/DeleteModal";
+import useDeleteComment from "../../hooks/useDeleteComment";
 
 type CommentProps = {
   comment: CommentType;
@@ -29,6 +30,7 @@ function Comment({ comment }: CommentProps) {
   const { addReply } = useAddReply(comment, comment.user.username, newReply);
   const { updateComment } = useEditComment(comment, editComment);
   const { increaseScoreComment, decreaseScoreComment } = useScoreComment(comment);
+  const { deleteComment } = useDeleteComment(comment);
 
   function handleAddReply() {
     addReply();
@@ -71,7 +73,7 @@ function Comment({ comment }: CommentProps) {
         </div>
       )}
 
-      <DeleteModal setIsDeleteModalOpen={setIsDeleteModalOpen} isDeleteModalOpen={isDeleteModalOpen} />
+      <DeleteModal setIsDeleteModalOpen={setIsDeleteModalOpen} isDeleteModalOpen={isDeleteModalOpen} deleteFunction={deleteComment} />
       
       {comment.replies.length > 0 && (
         <Replies replies={comment.replies} comment={comment} />
