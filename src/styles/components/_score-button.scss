@@ -18,13 +18,13 @@
 		background-color: $secondary-grey-color;
 	}
 
-    &__btn--plus-btn {
-        border-radius: 8px 0 0 8px;
-    }
+	&__btn--plus-btn {
+		border-radius: 8px 0 0 8px;
+	}
 
-    &__btn--minus-btn {
-        border-radius: 0 8px 8px 0;
-    }
+	&__btn--minus-btn {
+		border-radius: 0 8px 8px 0;
+	}
 
 	&__number {
 		display: flex;
@@ -33,7 +33,23 @@
 		height: 100%;
 		padding: 10px;
 		background-color: $secondary-grey-color;
-        color: $main-color;
-        font-weight: bold;
+		color: $main-color;
+		font-weight: bold;
+	}
+}
+
+@media (min-width: 992px) {
+	.score-container {
+		bottom: auto;
+		top: 15px;
+		flex-direction: column;
+
+		&__btn--plus-btn {
+			border-radius: 8px 8px 0 0;
+		}
+
+		&__btn--minus-btn {
+			border-radius: 0 0 8px 8px;
+		}
 	}
 }

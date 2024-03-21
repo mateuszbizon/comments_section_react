@@ -8,7 +8,7 @@
 
 	&__line {
 		height: auto;
-		width: 5px;
+		width: 3px;
 		background-color: $secondary-grey-color;
 	}
 
@@ -17,5 +17,12 @@
 		flex-direction: column;
 		gap: 10px;
 		width: calc(100% - 15px);
+	}
+}
+
+@media (min-width: 992px) {
+	.replies {
+		padding: 10px 0 0 40px;
+		gap: 30px;
 	}
 }
