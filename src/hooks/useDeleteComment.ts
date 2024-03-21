@@ -3,10 +3,10 @@ import { CommentType } from "../types/comments";
 import { commentsState } from "../state/atoms/commentsState";
 
 function useDeleteComment(comment: CommentType) {
-	const setUpdateComment = useSetRecoilState(commentsState);
+	const setDeleteComment = useSetRecoilState(commentsState);
 
 	function deleteComment() {
-		setUpdateComment(prev => {
+		setDeleteComment(prev => {
 			return prev.filter(commentItem => commentItem.id != comment.id);
 		});
 	}

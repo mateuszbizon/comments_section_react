@@ -13,6 +13,7 @@ import EditCommentForm from "../forms/EditCommentForm";
 import useEditReply from "../../hooks/useEditReply";
 import useScoreReply from "../../hooks/useScoreReply";
 import DeleteModal from "../modals/DeleteModal";
+import useDeleteReply from "../../hooks/useDeleteReply";
 
 type ReplyProps = {
     reply: ReplyType;
@@ -29,6 +30,7 @@ function Reply({ reply, comment }: ReplyProps) {
   const { addReply } = useAddReply(comment, reply.user.username, newReply);
   const { updateReply } = useEditReply(comment, reply, editReply)
   const { increaseScoreReply, decreaseScoreReply } = useScoreReply(comment, reply);
+  const { deleteReply } = useDeleteReply(comment, reply);
 
   function handleAddReply() {
     addReply();
@@ -74,7 +76,7 @@ function Reply({ reply, comment }: ReplyProps) {
         </div>
       )}
 
-      <DeleteModal isDeleteModalOpen={isDeleteModalOpen} setIsDeleteModalOpen={setIsDeleteModalOpen} />
+      <DeleteModal isDeleteModalOpen={isDeleteModalOpen} setIsDeleteModalOpen={setIsDeleteModalOpen} deleteFunction={deleteReply} />
     </>
   )
 }
